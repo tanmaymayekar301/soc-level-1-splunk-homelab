@@ -166,3 +166,8 @@ Possible improvements for this homelab include:
 This project demonstrates the core workflow of a SOC Level 1 analyst using Splunk Enterprise to monitor authentication events and investigate potentially suspicious activity.
 
 The homelab provides hands-on experience with SIEM monitoring, SPL queries, Windows event analysis, dashboard development, and basic security detection use cases.
+## 📄 Project Documentation
+
+Detailed documentation and Splunk dashboard evidence for this SOC Level 1 homelab:
+
+👉 [View SOC Level 1 Security Monitoring Documentation](./SOC%20Level%201%20Security%20Monitoring.pdf)
