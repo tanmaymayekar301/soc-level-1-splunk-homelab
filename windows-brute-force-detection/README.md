@@ -2,12 +2,9 @@
 
 ## 📌 Project Overview
 
-This project is a hands-on SOC lab focused on detecting and investigating
-potential Windows brute-force attacks using Splunk.
+This project is a hands-on SOC lab focused on detecting and investigating potential Windows brute-force attacks using Splunk.
 
-The lab demonstrates how Windows Security Event Logs can be collected,
-searched, analyzed, and visualized to identify repeated failed authentication
-attempts.
+The lab demonstrates how Windows Security Event Logs can be collected, searched, analyzed, and visualized to identify repeated failed authentication attempts.
 
 ## 🎯 Objectives
 
@@ -45,30 +42,11 @@ Repeated failed authentication attempts can be investigated for possible:
 - Misconfigured services
 - Suspicious authentication activity
 
-Event ID 4625 by itself does not prove a brute-force attack. Additional
-context such as source IP, username, timing, frequency, and related events
-should be investigated.
+Event ID 4625 by itself does not prove a brute-force attack. Additional context such as source IP, username, timing, frequency, and related events should be investigated.
 
 ## 🔍 Splunk Investigation
 
 The following SPL query was used to identify Windows failed logon events:
-
-```spl
-index=main sourcetype="XmlWinEventLog:Security" EventCode=4625
-```
-
-To identify accounts and source IPs generating repeated failed logons:
-
-```spl
-index=main sourcetype="XmlWinEventLog:Security" EventCode=4625
-| stats count by user, src_ip
-| sort - count
-```
-
-These searches help identify repeated authentication failures and provide
-useful information for further SOC investigation.
-
-| sort - count
 
 ```spl
 index=main sourcetype="XmlWinEventLog:Security" EventCode=4625
