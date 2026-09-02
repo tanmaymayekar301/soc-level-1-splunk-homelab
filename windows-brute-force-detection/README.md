@@ -51,15 +51,23 @@ should be investigated.
 
 ## 🔍 Splunk Investigation
 
-Example SPL query:```spl
+The following SPL query was used to identify Windows failed logon events:
+
+```spl
 index=main sourcetype="XmlWinEventLog:Security" EventCode=4625
+```
 
+To identify accounts and source IPs generating repeated failed logons:
 
-To identify accounts and source IPs generating failed logons:
-
-Example SPL query:```spl
+```spl
 index=main sourcetype="XmlWinEventLog:Security" EventCode=4625
 | stats count by user, src_ip
+| sort - count
+```
+
+These searches help identify repeated authentication failures and provide
+useful information for further SOC investigation.
+
 | sort - count
 
 ```spl
